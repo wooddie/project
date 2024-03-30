@@ -26,7 +26,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ry-90-Tgb">
-                                <rect key="frame" x="16" y="301" width="361" height="34"/>
+                                <rect key="frame" x="16" y="301" width="361" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tUu-MN-q7B"/>
@@ -35,7 +35,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWs-SI-BVR">
-                                <rect key="frame" x="136.66666666666666" y="447" width="119.99999999999997" height="50"/>
+                                <rect key="frame" x="136.66666666666666" y="453" width="119.99999999999997" height="6"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="TzS-SI-LUU"/>
                                     <constraint firstAttribute="height" constant="50" id="bQL-5K-RS7"/>
@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1924.4274809160304" y="-664.08450704225356"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--My Custom Tab Controller-->
         <scene sceneID="D77-XU-nmf">
             <objects>
-                <tabBarController id="AXn-iW-Mn0" sceneMemberID="viewController">
+                <tabBarController id="AXn-iW-Mn0" customClass="MyCustomTabController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U5U-A8-p8o">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

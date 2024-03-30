@@ -17,6 +17,7 @@
 		C8448BC12BB7E83E00B6D724 /* projectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BC02BB7E83E00B6D724 /* projectUITests.swift */; };
 		C8448BC32BB7E83E00B6D724 /* projectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BC22BB7E83E00B6D724 /* projectUITestsLaunchTests.swift */; };
 		C8448BD02BB7EB9100B6D724 /* DataDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BCF2BB7EB9100B6D724 /* DataDetailsViewController.swift */; };
+		C8448BD22BB7F49A00B6D724 /* MyCustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BD12BB7F49A00B6D724 /* MyCustomTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C8448BC02BB7E83E00B6D724 /* projectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITests.swift; sourceTree = "<group>"; };
 		C8448BC22BB7E83E00B6D724 /* projectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C8448BCF2BB7EB9100B6D724 /* DataDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetailsViewController.swift; sourceTree = "<group>"; };
+		C8448BD12BB7F49A00B6D724 /* MyCustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				C8448BA12BB7E83D00B6D724 /* SceneDelegate.swift */,
 				C8448BA32BB7E83D00B6D724 /* ViewController.swift */,
 				C8448BA52BB7E83D00B6D724 /* Main.storyboard */,
+				C8448BD12BB7F49A00B6D724 /* MyCustomTabController.swift */,
 				C8448BA82BB7E83E00B6D724 /* Assets.xcassets */,
 				C8448BAA2BB7E83E00B6D724 /* LaunchScreen.storyboard */,
 				C8448BAD2BB7E83E00B6D724 /* Info.plist */,
@@ -264,6 +267,7 @@
 				C8448BA42BB7E83D00B6D724 /* ViewController.swift in Sources */,
 				C8448BD02BB7EB9100B6D724 /* DataDetailsViewController.swift in Sources */,
 				C8448BA02BB7E83D00B6D724 /* AppDelegate.swift in Sources */,
+				C8448BD22BB7F49A00B6D724 /* MyCustomTabController.swift in Sources */,
 				C8448BA22BB7E83D00B6D724 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
