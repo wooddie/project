@@ -35,10 +35,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWs-SI-BVR">
-                                <rect key="frame" x="136.66666666666666" y="453" width="119.99999999999997" height="6"/>
+                                <rect key="frame" x="136.66666666666666" y="403" width="119.99999999999997" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="TzS-SI-LUU"/>
-                                    <constraint firstAttribute="height" constant="50" id="bQL-5K-RS7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="TzS-SI-LUU"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemGray2Color"/>
                                 <state key="normal" title="Button"/>
@@ -56,9 +55,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qet-pv-Wo9" secondAttribute="trailing" constant="16" id="IzQ-ga-l9T"/>
                             <constraint firstItem="9Ry-90-Tgb" firstAttribute="top" secondItem="Qet-pv-Wo9" secondAttribute="bottom" constant="33" id="OHN-gC-4E0"/>
                             <constraint firstItem="iWs-SI-BVR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tia-0k-DXA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iWs-SI-BVR" secondAttribute="bottom" constant="310" id="kAd-Ls-y1f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iWs-SI-BVR" secondAttribute="bottom" constant="320" id="kAd-Ls-y1f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ry-90-Tgb" secondAttribute="trailing" constant="16" id="kVy-AO-mmz"/>
-                            <constraint firstItem="iWs-SI-BVR" firstAttribute="top" secondItem="9Ry-90-Tgb" secondAttribute="bottom" constant="112" id="p46-z8-9Zc"/>
+                            <constraint firstItem="iWs-SI-BVR" firstAttribute="top" secondItem="9Ry-90-Tgb" secondAttribute="bottom" constant="62" id="p46-z8-9Zc"/>
                             <constraint firstItem="Qet-pv-Wo9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yp0-V5-luQ"/>
                         </constraints>
                     </view>
@@ -162,16 +161,16 @@
     </scenes>
     <resources>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

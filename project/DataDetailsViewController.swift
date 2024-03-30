@@ -7,18 +7,29 @@
 
 import UIKit
 
+protocol DataDetailsDelegate: AnyObject {
+    func updateData(author: String, bookTitle: String)
+}
+
 class DataDetailsViewController: UIViewController {
 
     @IBOutlet weak var AuthorLabel: UILabel!
     @IBOutlet weak var BookTitleLabel: UILabel!
     
-    var author = ""
-    var bookTitle = ""
+    weak var delegate: DataDetailsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AuthorLabel.text = "Author: \(author)"
-        BookTitleLabel.text = "Book title: \(bookTitle)"
-
+        loadAndDisplayData()
+    }
+    
+    func loadAndDisplayData() {
+        // Load data from UserDefaults
+        if let author = UserDefaults.standard.string(forKey: "Author"),
+           let bookTitle = UserDefaults.standard.string(forKey: "BookTitle") {
+            // Display data in labels
+            AuthorLabel.text = "Author: \(author)"
+            BookTitleLabel.text = "Book Title: \(bookTitle)"
+        }
     }
 }
