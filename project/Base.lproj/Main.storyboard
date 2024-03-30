@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Add book-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qet-pv-Wo9">
-                                <rect key="frame" x="16" y="184" width="361" height="40"/>
+                                <rect key="frame" x="16" y="228" width="361" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KPm-3S-veC"/>
@@ -26,7 +26,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ry-90-Tgb">
-                                <rect key="frame" x="16" y="257" width="361" height="40"/>
+                                <rect key="frame" x="16" y="301" width="361" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tUu-MN-q7B"/>
@@ -35,7 +35,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWs-SI-BVR">
-                                <rect key="frame" x="136.66666666666666" y="409" width="119.99999999999997" height="50"/>
+                                <rect key="frame" x="136.66666666666666" y="447" width="119.99999999999997" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="TzS-SI-LUU"/>
                                     <constraint firstAttribute="height" constant="50" id="bQL-5K-RS7"/>
@@ -43,6 +43,9 @@
                                 <color key="tintColor" systemColor="systemGray2Color"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="BtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAR-hm-NOZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -59,11 +62,15 @@
                             <constraint firstItem="Qet-pv-Wo9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yp0-V5-luQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Wtd-1B-zMP"/>
+                    <navigationItem key="navigationItem" title="Add book" id="Y3G-TB-l1o"/>
+                    <connections>
+                        <outlet property="AuthorTxt" destination="Qet-pv-Wo9" id="tnw-3X-4uE"/>
+                        <outlet property="BookTitleTxt" destination="9Ry-90-Tgb" id="7qy-a2-o3v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.70992366412213" y="-664.08450704225356"/>
+            <point key="canvasLocation" x="1924.4274809160304" y="-664.08450704225356"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="D77-XU-nmf">
@@ -75,7 +82,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="gR7-x9-kXE"/>
+                        <segue destination="65d-gV-nbd" kind="relationship" relationship="viewControllers" id="gR7-x9-kXE"/>
                         <segue destination="tkE-0F-88D" kind="relationship" relationship="viewControllers" id="lWs-sG-nwJ"/>
                     </connections>
                 </tabBarController>
@@ -91,16 +98,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfI-c4-cff">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfI-c4-cff">
                                 <rect key="frame" x="16" y="180" width="361" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cgn-wp-Gy6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe1-oJ-7uw">
-                                <rect key="frame" x="16" y="228" width="361" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe1-oJ-7uw">
+                                <rect key="frame" x="16" y="220" width="361" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Yx6-yS-rYb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -108,17 +121,51 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="atH-pq-peI"/>
                         <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <constraints>
+                            <constraint firstItem="gfI-c4-cff" firstAttribute="leading" secondItem="atH-pq-peI" secondAttribute="leading" constant="16" id="LSf-Ld-oK3"/>
+                            <constraint firstItem="gfI-c4-cff" firstAttribute="top" secondItem="atH-pq-peI" secondAttribute="top" constant="121" id="M4W-Gm-ku1"/>
+                            <constraint firstItem="Qe1-oJ-7uw" firstAttribute="top" secondItem="gfI-c4-cff" secondAttribute="bottom" id="Q8W-3c-43D"/>
+                            <constraint firstItem="Qe1-oJ-7uw" firstAttribute="leading" secondItem="atH-pq-peI" secondAttribute="leading" constant="16" id="TA3-nc-epJ"/>
+                            <constraint firstItem="atH-pq-peI" firstAttribute="trailing" secondItem="Qe1-oJ-7uw" secondAttribute="trailing" constant="16" id="pZ4-bb-W8w"/>
+                            <constraint firstItem="atH-pq-peI" firstAttribute="trailing" secondItem="gfI-c4-cff" secondAttribute="trailing" constant="16" id="wTT-do-ujf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="kRH-cx-GFD"/>
+                    <connections>
+                        <outlet property="AuthorLabel" destination="gfI-c4-cff" id="P58-k4-68W"/>
+                        <outlet property="BookTitleLabel" destination="Qe1-oJ-7uw" id="J1L-le-Zh5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wg-Pb-s2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="997.70992366412213" y="100.70422535211269"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="EPa-XC-hnX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65d-gV-nbd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Wtd-1B-zMP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pop-LP-tz7">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MQT-as-cfo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBz-S7-bss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.70992366412213" y="-664.08450704225356"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
