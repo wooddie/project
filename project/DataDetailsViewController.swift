@@ -18,8 +18,8 @@ class DataDetailsViewController: UIViewController {
     
     weak var delegate: DataDetailsDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadAndDisplayData()
     }
     
