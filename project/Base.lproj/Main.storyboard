@@ -41,7 +41,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemGray2Color"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
                                 <connections>
                                     <action selector="BtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CAR-hm-NOZ"/>
                                 </connections>
@@ -82,14 +82,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="65d-gV-nbd" kind="relationship" relationship="viewControllers" id="gR7-x9-kXE"/>
-                        <segue destination="tkE-0F-88D" kind="relationship" relationship="viewControllers" id="lWs-sG-nwJ"/>
+                        <segue destination="Iyf-aM-pmO" kind="relationship" relationship="viewControllers" id="lWs-sG-nwJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEG-Cu-E4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7" y="-391"/>
         </scene>
-        <!--Item-->
+        <!--Book added-->
         <scene sceneID="DPI-cI-te7">
             <objects>
                 <viewController storyboardIdentifier="DataDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tkE-0F-88D" customClass="DataDetailsViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfI-c4-cff">
-                                <rect key="frame" x="16" y="180" width="361" height="40"/>
+                                <rect key="frame" x="16" y="224" width="361" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cgn-wp-Gy6"/>
@@ -108,7 +108,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe1-oJ-7uw">
-                                <rect key="frame" x="16" y="220" width="361" height="40"/>
+                                <rect key="frame" x="16" y="264" width="361" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Yx6-yS-rYb"/>
@@ -129,7 +129,7 @@
                             <constraint firstItem="atH-pq-peI" firstAttribute="trailing" secondItem="gfI-c4-cff" secondAttribute="trailing" constant="16" id="wTT-do-ujf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kRH-cx-GFD"/>
+                    <navigationItem key="navigationItem" title="Book added" id="wF2-Pn-8Dd"/>
                     <connections>
                         <outlet property="AuthorLabel" destination="gfI-c4-cff" id="P58-k4-68W"/>
                         <outlet property="BookTitleLabel" destination="Qe1-oJ-7uw" id="J1L-le-Zh5"/>
@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wg-Pb-s2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.70992366412213" y="100.70422535211269"/>
+            <point key="canvasLocation" x="1924.4274809160304" y="100.70422535211269"/>
         </scene>
         <!--Item-->
         <scene sceneID="EPa-XC-hnX">
@@ -157,6 +157,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BBz-S7-bss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="997.70992366412213" y="-664.08450704225356"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="q2F-53-204">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iyf-aM-pmO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="kRH-cx-GFD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xbu-Py-lhO">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tkE-0F-88D" kind="relationship" relationship="rootViewController" id="xsw-Ai-hoD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DST-xY-Dw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.70992366412213" y="100.70422535211269"/>
         </scene>
     </scenes>
     <resources>
