@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Load and display saved data when the view loads
+        loadSavedData()
     }
     
     @IBAction func BtnTapped(_ sender: Any) {

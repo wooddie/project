@@ -23,6 +23,14 @@ class DataDetailsViewController: UIViewController {
             // Display data in labels
             AuthorLabel.text = "Author: \(author)"
             BookTitleLabel.text = "Book Title: \(bookTitle)"
+            
+            // Save author and book title to arrays
+            var authorsArray = UserDefaults.standard.array(forKey: "Authors") as? [String] ?? []
+            var bookTitlesArray = UserDefaults.standard.array(forKey: "BookTitles") as? [String] ?? []
+            authorsArray.append(author)
+            bookTitlesArray.append(bookTitle)
+            UserDefaults.standard.set(authorsArray, forKey: "Authors")
+            UserDefaults.standard.set(bookTitlesArray, forKey: "BookTitles")
         }
     }
 }
