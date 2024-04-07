@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Load and display saved data when the view loads
-        loadSavedData()
     }
     
     @IBAction func BtnTapped(_ sender: Any) {
@@ -26,14 +25,6 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(author, forKey: "Author")
         UserDefaults.standard.set(bookTitle, forKey: "BookTitle")
         navigateToNextScreen()
-    }
-    
-    func loadSavedData() {
-        if let author = UserDefaults.standard.string(forKey: "Author"),
-           let bookTitle = UserDefaults.standard.string(forKey: "BookTitle") {
-            AuthorTxt.text = author
-            BookTitleTxt.text = bookTitle
-        }
     }
     
     func navigateToNextScreen() {

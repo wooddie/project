@@ -14,8 +14,8 @@ class AllDataViewController: UIViewController {
     var authors: [String] = []
     var bookTitles: [String] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadAllData()
         allDataTableView.dataSource = self
         allDataTableView.reloadData()

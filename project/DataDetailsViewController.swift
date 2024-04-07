@@ -15,6 +15,7 @@ class DataDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadAndDisplayData()
+        
     }
     
     func loadAndDisplayData() {
