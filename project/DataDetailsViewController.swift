@@ -7,31 +7,33 @@
 
 import UIKit
 
+protocol BookAddedDelegate: AnyObject {
+    func didAddBook(_ book: Book)
+}
+
 class DataDetailsViewController: UIViewController {
 
     @IBOutlet weak var AuthorLabel: UILabel!
     @IBOutlet weak var BookTitleLabel: UILabel!
     
+    weak var delegate: BookAddedDelegate?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadAndDisplayData()
-        
     }
     
     func loadAndDisplayData() {
-        if let author = UserDefaults.standard.string(forKey: "Author"),
-           let bookTitle = UserDefaults.standard.string(forKey: "BookTitle") {
-            // Display data in labels
-            AuthorLabel.text = "Author: \(author)"
-            BookTitleLabel.text = "Book Title: \(bookTitle)"
-            
-            // Save author and book title to arrays
-            var authorsArray = UserDefaults.standard.array(forKey: "Authors") as? [String] ?? []
-            var bookTitlesArray = UserDefaults.standard.array(forKey: "BookTitles") as? [String] ?? []
-            authorsArray.append(author)
-            bookTitlesArray.append(bookTitle)
-            UserDefaults.standard.set(authorsArray, forKey: "Authors")
-            UserDefaults.standard.set(bookTitlesArray, forKey: "BookTitles")
+        if let booksData = UserDefaults.standard.array(forKey: "Books") as? [[String: String]], !booksData.isEmpty {
+            // Преобразуем данные книг в объекты Book
+            let books = booksData.map { Book(author: $0["author"]!, title: $0["title"]!) }
+            // Выводим информацию о последней добавленной книге
+            let latestBook = books.last!
+            AuthorLabel.text = "Author: \(latestBook.author)"
+            BookTitleLabel.text = "Book Title: \(latestBook.title)"
+        } else {
+            AuthorLabel.text = "No Data Available"
+            BookTitleLabel.text = ""
         }
     }
 }

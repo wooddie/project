@@ -7,10 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BookAddedDelegate {
     
     @IBOutlet weak var AuthorTxt: UITextField!
     @IBOutlet weak var BookTitleTxt: UITextField!
+    
+    // Добавляем свойство delegate
+    var delegate: BookAddedDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +25,35 @@ class ViewController: UIViewController {
               let bookTitle = BookTitleTxt.text, !bookTitle.isEmpty else {
             return
         }
-        UserDefaults.standard.set(author, forKey: "Author")
-        UserDefaults.standard.set(bookTitle, forKey: "BookTitle")
+        let book = Book(author: author, title: bookTitle)
+        saveBook(book)
         navigateToNextScreen()
+    }
+    
+    func saveBook(_ book: Book) {
+        // Получаем текущий список книг из UserDefaults
+        var books = UserDefaults.standard.array(forKey: "Books") as? [[String: String]] ?? []
+        // Добавляем новую книгу в список
+        books.append(["author": book.author, "title": book.title])
+        // Сохраняем обновленный список книг в UserDefaults
+        UserDefaults.standard.set(books, forKey: "Books")
+        
+        // Сообщаем делегату о добавлении новой книги
+        delegate?.didAddBook(book)
     }
     
     func navigateToNextScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let dataDetailsViewController = storyboard.instantiateViewController(withIdentifier: "DataDetailsViewController") as? DataDetailsViewController {
+            dataDetailsViewController.delegate = self
             navigationController?.pushViewController(dataDetailsViewController, animated: true)
         }
     }
+    
+    func didAddBook(_ book: Book) {
+        // Обновляем данные в AllDataViewController
+        let allDataViewController = navigationController?.viewControllers.first(where: { $0 is AllDataViewController }) as? AllDataViewController
+        allDataViewController?.loadAllData()
+        allDataViewController?.allDataTableView.reloadData()
+    }
 }
-

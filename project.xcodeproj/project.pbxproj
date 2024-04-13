@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C838450D2BCA675000296541 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838450C2BCA675000296541 /* Book.swift */; };
+		C838450F2BCA71F800296541 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838450E2BCA71F800296541 /* Books.swift */; };
 		C8448BA02BB7E83D00B6D724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448B9F2BB7E83D00B6D724 /* AppDelegate.swift */; };
 		C8448BA22BB7E83D00B6D724 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BA12BB7E83D00B6D724 /* SceneDelegate.swift */; };
 		C8448BA42BB7E83D00B6D724 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BA32BB7E83D00B6D724 /* ViewController.swift */; };
@@ -19,6 +21,7 @@
 		C8448BD02BB7EB9100B6D724 /* DataDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BCF2BB7EB9100B6D724 /* DataDetailsViewController.swift */; };
 		C8448BD22BB7F49A00B6D724 /* MyCustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8448BD12BB7F49A00B6D724 /* MyCustomTabController.swift */; };
 		C86DCC692BC13825007B29F8 /* AllDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86DCC682BC13825007B29F8 /* AllDataViewController.swift */; };
+		C8C87AD62BC27E2900CEBAB1 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C87AD52BC27E2900CEBAB1 /* BookSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C838450C2BCA675000296541 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		C838450E2BCA71F800296541 /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		C8448B9C2BB7E83D00B6D724 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8448B9F2BB7E83D00B6D724 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8448BA12BB7E83D00B6D724 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		C8448BCF2BB7EB9100B6D724 /* DataDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetailsViewController.swift; sourceTree = "<group>"; };
 		C8448BD12BB7F49A00B6D724 /* MyCustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomTabController.swift; sourceTree = "<group>"; };
 		C86DCC682BC13825007B29F8 /* AllDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDataViewController.swift; sourceTree = "<group>"; };
+		C8C87AD52BC27E2900CEBAB1 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,9 @@
 				C8448BAD2BB7E83E00B6D724 /* Info.plist */,
 				C8448BCF2BB7EB9100B6D724 /* DataDetailsViewController.swift */,
 				C86DCC682BC13825007B29F8 /* AllDataViewController.swift */,
+				C8C87AD52BC27E2900CEBAB1 /* BookSearchViewController.swift */,
+				C838450C2BCA675000296541 /* Book.swift */,
+				C838450E2BCA71F800296541 /* Books.swift */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -267,10 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C838450D2BCA675000296541 /* Book.swift in Sources */,
 				C86DCC692BC13825007B29F8 /* AllDataViewController.swift in Sources */,
+				C8C87AD62BC27E2900CEBAB1 /* BookSearchViewController.swift in Sources */,
 				C8448BA42BB7E83D00B6D724 /* ViewController.swift in Sources */,
 				C8448BD02BB7EB9100B6D724 /* DataDetailsViewController.swift in Sources */,
 				C8448BA02BB7E83D00B6D724 /* AppDelegate.swift in Sources */,
+				C838450F2BCA71F800296541 /* Books.swift in Sources */,
 				C8448BD22BB7F49A00B6D724 /* MyCustomTabController.swift in Sources */,
 				C8448BA22BB7E83D00B6D724 /* SceneDelegate.swift in Sources */,
 			);

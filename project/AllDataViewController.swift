@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllDataViewController: UIViewController {
+class AllDataViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var allDataTableView: UITableView!
     
@@ -16,18 +16,27 @@ class AllDataViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadAllData()
         allDataTableView.dataSource = self
+        allDataTableView.delegate = self // Установка делегата
+        loadAllData()
         allDataTableView.reloadData()
     }
     
     func loadAllData() {
-        if let savedAuthors = UserDefaults.standard.array(forKey: "Authors") as? [String] {
-            authors = savedAuthors
+        if let booksData = UserDefaults.standard.array(forKey: "Books") as? [[String: String]], !booksData.isEmpty {
+            // Преобразуем данные книг в объекты Book
+            let books = booksData.map { Book(author: $0["author"]!, title: $0["title"]!) }
+            // Получаем списки авторов и названий книг из объектов Book
+            authors = books.map { $0.author }
+            bookTitles = books.map { $0.title }
+        } else {
+            authors = []
+            bookTitles = []
         }
-        if let savedBookTitles = UserDefaults.standard.array(forKey: "BookTitles") as? [String] {
-            bookTitles = savedBookTitles
-        }
+        
+        // Отладочный вывод
+        print("Loaded authors: \(authors)")
+        print("Loaded book titles: \(bookTitles)")
     }
 }
 
