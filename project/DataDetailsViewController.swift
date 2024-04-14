@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BookAddedDelegate: AnyObject {
-    func didAddBook(_ book: Book)
+    func didAddBook(_ booklocal: BookLocal)
 }
 
 class DataDetailsViewController: UIViewController {
@@ -25,9 +25,7 @@ class DataDetailsViewController: UIViewController {
     
     func loadAndDisplayData() {
         if let booksData = UserDefaults.standard.array(forKey: "Books") as? [[String: String]], !booksData.isEmpty {
-            // Преобразуем данные книг в объекты Book
-            let books = booksData.map { Book(title: $0["title"]!, author: $0["author"]!) }
-            // Выводим информацию о последней добавленной книге
+            let books = booksData.map { BookLocal(title: $0["title"]!, author: $0["author"]!) }
             let latestBook = books.last!
             AuthorLabel.text = "Author: \(latestBook.author)"
             BookTitleLabel.text = "Book Title: \(latestBook.title)"

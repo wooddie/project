@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct BookLocal {
+    let title: String
+    let author: String
+
+    // Изменен инициализатор, чтобы соответствовать новым необязательным полям
+    init(title: String, author: String) {
+        self.title = title
+        self.author = author
+    }
+}

@@ -25,21 +25,16 @@ class ViewController: UIViewController, BookAddedDelegate {
               let bookTitle = BookTitleTxt.text, !bookTitle.isEmpty else {
             return
         }
-        let book = Book(title: bookTitle, author: author)
+        let book = BookLocal(title: bookTitle, author: author) // Заменено на author
         saveBook(book)
         navigateToNextScreen()
     }
     
-    func saveBook(_ book: Book) {
-        // Получаем текущий список книг из UserDefaults
+    func saveBook(_ booklocal: BookLocal) { // Изменен тип аргумента
         var books = UserDefaults.standard.array(forKey: "Books") as? [[String: String]] ?? []
-        // Добавляем новую книгу в список
-        books.append(["author": book.author, "title": book.title])
-        // Сохраняем обновленный список книг в UserDefaults
+        books.append(["author": booklocal.author, "title": booklocal.title]) // Заменено на book.authors
         UserDefaults.standard.set(books, forKey: "Books")
-        
-        // Сообщаем делегату о добавлении новой книги
-        delegate?.didAddBook(book)
+        delegate?.didAddBook(booklocal)
     }
     
     func navigateToNextScreen() {
@@ -50,7 +45,7 @@ class ViewController: UIViewController, BookAddedDelegate {
         }
     }
     
-    func didAddBook(_ book: Book) {
+    func didAddBook(_ booklocal: BookLocal) {
         // Обновляем данные в AllDataViewController
         let allDataViewController = navigationController?.viewControllers.first(where: { $0 is AllDataViewController }) as? AllDataViewController
         allDataViewController?.loadAllData()

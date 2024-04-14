@@ -7,18 +7,24 @@
 
 import Foundation
 
-struct Book: Codable {
-    let title: String
-    let author: String
-    // Дополнительные свойства книги, если есть
-
-    // Инициализатор, если необходимо
-     init(title: String, author: String) {
-        self.title = title
-        self.author = author
-    }
+struct BookSearchResponse: Codable {
+    let numFound: Int
+    let docs: [Book]
 }
 
-struct BookSearchResponse: Codable {
-    let items: [Book]
+struct Book: Codable {
+    let key: String
+    let title: String
+    let author_name: [String]
+    let editions: Editions?
+}
+
+struct Editions: Codable {
+    let numFound: Int
+    let docs: [Edition]
+}
+
+struct Edition: Codable {
+    let key: String
+    let title: String
 }
