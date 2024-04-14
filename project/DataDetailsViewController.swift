@@ -26,7 +26,7 @@ class DataDetailsViewController: UIViewController {
     func loadAndDisplayData() {
         if let booksData = UserDefaults.standard.array(forKey: "Books") as? [[String: String]], !booksData.isEmpty {
             // Преобразуем данные книг в объекты Book
-            let books = booksData.map { Book(author: $0["author"]!, title: $0["title"]!) }
+            let books = booksData.map { Book(title: $0["title"]!, author: $0["author"]!) }
             // Выводим информацию о последней добавленной книге
             let latestBook = books.last!
             AuthorLabel.text = "Author: \(latestBook.author)"

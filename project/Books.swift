@@ -18,7 +18,3 @@ struct Books: Codable {
         self.author = author
     }
 }
-
-struct BookSearchResponse: Codable {
-    let items: [Books]
-}

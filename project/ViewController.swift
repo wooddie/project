@@ -25,7 +25,7 @@ class ViewController: UIViewController, BookAddedDelegate {
               let bookTitle = BookTitleTxt.text, !bookTitle.isEmpty else {
             return
         }
-        let book = Book(author: author, title: bookTitle)
+        let book = Book(title: bookTitle, author: author)
         saveBook(book)
         navigateToNextScreen()
     }
