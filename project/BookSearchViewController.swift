@@ -22,7 +22,10 @@ class BookSearchViewController: UIViewController {
     }
     
     func searchBooks(withQuery query: String, completion: @escaping (Result<[Book], Error>) -> Void) {
-        let urlString = "https://openlibrary.org/search.json?q=\(query)&fields=key,title,author_name,editions"
+        // Заменяем пробелы на %20 в запросе
+        let formattedQuery = query.replacingOccurrences(of: " ", with: "%20")
+        let urlString = "https://openlibrary.org/search.json?q=\(formattedQuery)&fields=key,title,author_name,editions"
+        print("Search URL:", urlString) // Выводим URL-адрес для отладки
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
@@ -43,7 +46,17 @@ class BookSearchViewController: UIViewController {
                 let bookResponse = try JSONDecoder().decode(BookSearchResponse.self, from: data)
                 print("Received \(bookResponse.docs.count) books:")
                 for book in bookResponse.docs {
-                    print("Title: \(book.title), Authors: \(book.author_name.joined(separator: ", "))")
+                    // Проверяем, не пустой ли массив "author_name"
+                    if let authorName = book.author_name {
+                        if !authorName.isEmpty {
+                            print("Title: \(book.title), Authors: \(authorName.joined(separator: ", "))")
+                        } else {
+                            print("Title: \(book.title), Authors: Unknown")
+                        }
+                    } else {
+                        print("Title: \(book.title), Authors: Unknown")
+                    }
+
                 }
                 completion(.success(bookResponse.docs))
             } catch {
@@ -98,8 +111,7 @@ extension BookSearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Настраиваем ячейку с данными о книге (название и список авторов)
         cell.textLabel?.text = book.title
-        cell.detailTextLabel?.text = book.author_name.first // Обновляем список авторов
-        
+        cell.detailTextLabel?.text = book.author_name?.first // Обновляем список авторов
         return cell
     }
 }

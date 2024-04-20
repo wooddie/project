@@ -15,7 +15,7 @@ struct BookSearchResponse: Codable {
 struct Book: Codable {
     let key: String
     let title: String
-    let author_name: [String]
+    let author_name: [String]?
     let editions: Editions?
 }
 
