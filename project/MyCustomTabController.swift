@@ -23,6 +23,11 @@ extension UITabBarController: UITabBarControllerDelegate {
             return false
         }
         
+        // Проверяем, нажата ли текущая вкладка
+        guard tabBarController.selectedViewController != viewController else {
+            return false
+        }
+        
         // Определяем направление перехода
         let isMovingLeft = tabBarController.selectedIndex < (tabBarController.viewControllers?.firstIndex(of: viewController) ?? 0)
         

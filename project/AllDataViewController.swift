@@ -38,6 +38,12 @@ class AllDataViewController: UIViewController, UITableViewDelegate {
         print("Loaded author: \(authors)")
         print("Loaded book titles: \(bookTitles)")
     }
+    
+    func removeBook(at index: Int) {
+        var books = UserDefaults.standard.array(forKey: "Books") as? [[String: String]] ?? []
+        books.remove(at: index)
+        UserDefaults.standard.set(books, forKey: "Books")
+    }
 }
 
 extension AllDataViewController: UITableViewDataSource {
@@ -47,7 +53,15 @@ extension AllDataViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath)
-        cell.textLabel?.text = "Author: \(authors[indexPath.row]), Book Title: \(bookTitles[indexPath.row])"
+        cell.textLabel?.text = "\(authors[indexPath.row]) - \(bookTitles[indexPath.row])"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            removeBook(at: indexPath.row)
+            loadAllData()
+            allDataTableView.reloadData()
+        }
     }
 }
