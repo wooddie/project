@@ -23,25 +23,20 @@ extension UITabBarController: UITabBarControllerDelegate {
             return false
         }
         
-        // Проверяем, нажата ли текущая вкладка
         guard tabBarController.selectedViewController != viewController else {
             return false
         }
         
-        // Определяем направление перехода
         let isMovingLeft = tabBarController.selectedIndex < (tabBarController.viewControllers?.firstIndex(of: viewController) ?? 0)
         
-        // Устанавливаем начальную позицию для нового экрана
         if isMovingLeft {
             toView.frame = CGRect(x: tabBarController.view.frame.size.width, y: 0, width: tabBarController.view.frame.size.width, height: tabBarController.view.frame.size.height)
         } else {
             toView.frame = CGRect(x: -tabBarController.view.frame.size.width, y: 0, width: tabBarController.view.frame.size.width, height: tabBarController.view.frame.size.height)
         }
         
-        // Добавляем новый экран поверх текущего экрана
         tabBarController.view.addSubview(toView)
         
-        // Анимированный переход между экранами
         UIView.animate(withDuration: 0.3, animations: {
             if isMovingLeft {
                 fromView.frame = CGRect(x: -tabBarController.view.frame.size.width, y: 0, width: tabBarController.view.frame.size.width, height: tabBarController.view.frame.size.height)
@@ -50,10 +45,8 @@ extension UITabBarController: UITabBarControllerDelegate {
             }
             toView.frame = CGRect(x: 0, y: 0, width: tabBarController.view.frame.size.width, height: tabBarController.view.frame.size.height)
         }) { (finished) in
-            // Удаляем предыдущий экран после завершения анимации
             fromView.removeFromSuperview()
         }
-        
         return true
     }
 }

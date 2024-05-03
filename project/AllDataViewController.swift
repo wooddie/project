@@ -17,24 +17,20 @@ class AllDataViewController: UIViewController, UITableViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         allDataTableView.dataSource = self
-        allDataTableView.delegate = self // Установка делегата
+        allDataTableView.delegate = self
         loadAllData()
         allDataTableView.reloadData()
     }
     
     func loadAllData() {
         if let booksData = UserDefaults.standard.array(forKey: "Books") as? [[String: String]], !booksData.isEmpty {
-            // Преобразуем данные книг в объекты Book
             let books = booksData.map { BookLocal(title: $0["title"]!, author: $0["author"]!) }
-            // Получаем списки авторов и названий книг из объектов Book
             authors = books.map { $0.author }
             bookTitles = books.map { $0.title }
         } else {
             authors = []
             bookTitles = []
         }
-        
-        // Отладочный вывод
         print("Loaded author: \(authors)")
         print("Loaded book titles: \(bookTitles)")
     }

@@ -12,7 +12,6 @@ class ViewController: UIViewController, BookAddedDelegate {
     @IBOutlet weak var AuthorTxt: UITextField!
     @IBOutlet weak var BookTitleTxt: UITextField!
     
-    // Добавляем свойство delegate
     var delegate: BookAddedDelegate?
     
     override func viewDidLoad() {
@@ -46,7 +45,6 @@ class ViewController: UIViewController, BookAddedDelegate {
     }
     
     func didAddBook(_ booklocal: BookLocal) {
-        // Обновляем данные в AllDataViewController
         let allDataViewController = navigationController?.viewControllers.first(where: { $0 is AllDataViewController }) as? AllDataViewController
         allDataViewController?.loadAllData()
         allDataViewController?.allDataTableView.reloadData()
