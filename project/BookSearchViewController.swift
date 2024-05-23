@@ -18,6 +18,7 @@ class BookSearchViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
     }
     
     func searchBooks(withQuery query: String, completion: @escaping (Result<[Book], Error>) -> Void) {
@@ -53,7 +54,6 @@ class BookSearchViewController: UIViewController {
                     } else {
                         print("Title: \(book.title), Authors: Unknown")
                     }
-
                 }
                 completion(.success(bookResponse.docs))
             } catch {
@@ -62,6 +62,12 @@ class BookSearchViewController: UIViewController {
         }
         
         task.resume()
+    }
+    
+    func saveBook(_ book: BookLocal) {
+        var books = UserDefaults.standard.array(forKey: "Books") as? [[String: String]] ?? []
+        books.append(["author": book.author, "title": book.title])
+        UserDefaults.standard.set(books, forKey: "Books")
     }
 }
 
@@ -90,7 +96,6 @@ extension BookSearchViewController: UISearchBarDelegate {
     }
 }
 
-
 extension BookSearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
@@ -103,6 +108,24 @@ extension BookSearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.author_name?.first
+        
+        // Добавить кнопку сохранения
+        let saveButton = UIButton(type: .contactAdd)
+        saveButton.tag = indexPath.row
+        saveButton.addTarget(self, action: #selector(saveButtonTapped(_:)), for: .touchUpInside)
+        cell.accessoryView = saveButton
+        
         return cell
+    }
+    
+    @objc func saveButtonTapped(_ sender: UIButton) {
+        let book = searchResults[sender.tag]
+        if let author = book.author_name?.first {
+            let bookLocal = BookLocal(title: book.title, author: author)
+            saveBook(bookLocal)
+            let alert = UIAlertController(title: "Success", message: "Book saved successfully!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookLocal {
+struct BookLocal: Codable {
     let title: String
     let author: String
 
