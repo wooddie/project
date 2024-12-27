@@ -66,9 +66,16 @@ extension AllDataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Получение ячейки из пула ячеек с идентификатором "DataCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath)
-        // Установка текста ячейки
-        cell.textLabel?.text = "\(authors[indexPath.row]) - \(bookTitles[indexPath.row])"
+        // Установка текста ячейки с разрывом строки
+        cell.textLabel?.text = "\("Author: ")\(authors[indexPath.row])\n\("Title: ")\(bookTitles[indexPath.row])"
+        // Разрешение многострочного текста
+        cell.textLabel?.numberOfLines = 0
         return cell
+    }
+
+    // Метод для указания высоты строки таблицы
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension // Автоматическая настройка высоты строки
     }
     
     // Метод для обработки удаления строки таблицы
